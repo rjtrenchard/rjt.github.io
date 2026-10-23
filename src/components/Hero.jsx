@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import HeroCube from './HeroCube';
 
 export default function Hero() {
@@ -15,7 +16,7 @@ export default function Hero() {
         </p>
         <div className="hero-cta">
           <a href="#projects" className="btn btn-primary">View my work</a>
-          <a href="/hobbies" className='btn btn-outline'>Check out my Hobbies</a>
+          <Link to="/hobbies" className="btn btn-outline">Check out my Hobbies</Link>
           <a href="#contact" className="btn btn-outline">Get in touch</a>
         </div>
       </div>
