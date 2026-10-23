@@ -22,8 +22,8 @@ export default function Nav() {
       </button>
 
       <ul className={`nav-links${open ? ' nav-links--open' : ''}`} onClick={() => setOpen(false)}>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#projects">Projects</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}#about`}>About</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}#projects`}>Projects</a></li>
         <li>
           <NavLink
             to="/hobbies"
@@ -32,7 +32,7 @@ export default function Nav() {
             Hobbies
           </NavLink>
         </li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}#contact`}>Contact</a></li>
         <li><a href="https://www.github.com/rjtrenchard" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/rj-trenchard" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
       </ul>
