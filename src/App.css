@@ -145,7 +145,130 @@
   flex-shrink: 0;
 }
 
+/* ── Cube throw HUD ── */
+.cube-throw-hud {
+  position: fixed;
+  z-index: 1002;
+  pointer-events: none;
+}
 
+.cube-throw-hud-float {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  min-width: 168px;
+  font-family: var(--mono);
+  color: var(--accent);
+  background: linear-gradient(
+    160deg,
+    rgba(10, 14, 26, 0.92),
+    rgba(17, 24, 39, 0.78)
+  );
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  animation: cube-hud-float 2.4s ease-in-out infinite;
+}
+
+.cube-throw-hud-line {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cube-throw-hud-hint {
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.55;
+}
+
+.cube-throw-hud--warn .cube-throw-hud-float {
+  border-color: rgba(251, 191, 36, 0.55);
+  color: #fbbf24;
+}
+
+.cube-throw-hud--warn .cube-throw-hud-hint {
+  color: #fbbf24;
+  opacity: 0.8;
+}
+
+.cube-throw-hud--critical .cube-throw-hud-float {
+  border-color: rgba(248, 113, 113, 0.65);
+  color: #f87171;
+  animation: cube-hud-float 2.4s ease-in-out infinite, cube-hud-pulse 0.55s ease-in-out infinite;
+}
+
+.cube-throw-hud--critical .cube-throw-hud-hint {
+  color: #f87171;
+  opacity: 0.9;
+}
+
+@keyframes cube-hud-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes cube-hud-pulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(248, 113, 113, 0.28);
+  }
+}
+
+.cube-reset-spinner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1003;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 36px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: #0a0e1a;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+}
+
+.cube-reset-spinner[hidden] {
+  display: none !important;
+}
+
+.cube-reset-spinner-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(34, 211, 238, 0.22);
+  border-top-color: var(--accent);
+  animation: cube-reset-spin 0.75s linear infinite;
+}
+
+.cube-reset-spinner-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+@keyframes cube-reset-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /* ── Buttons ── */
 .btn {
